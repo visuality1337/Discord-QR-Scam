@@ -1,3 +1,5 @@
+# ORIGINAL BY NightfallGT just some fixes by me.
+
 # Discord-QR-Scam
 Discord Image Token Grabber 
 
