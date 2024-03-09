@@ -7,6 +7,7 @@ import os
 import requests
 import json
 
+# PATCHED, DO NOT USE
 # Developer: NightfallGT
 # Educational purposes only
 
